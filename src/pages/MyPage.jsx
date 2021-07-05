@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import MyContext from "../components/MyContext";
+import PopoverComponent from "../components/PopoverComponent";
 import NavigationComponent from "../components/NavigationComponent";
 import WithLoadingComponent from "../components/WithLoadingComponent";
 import DashboardComponent from "../components/DashboardComponent";
@@ -14,6 +15,8 @@ export default function MyPage() {
   const [data, setData] = useState([]);
   const [counter, setCounter] = useState("1");
   const [isLoading, setIsLoading] = useState(true);
+
+  const popoverRef = useRef(null);
 
   const decreaseCounter = () => {
     if (counter > 1) {
@@ -41,6 +44,7 @@ export default function MyPage() {
 
   useEffect(() => {
     getData();
+    popoverRef.current.open();
   }, []);
   return (
     <React.Fragment>
@@ -51,6 +55,7 @@ export default function MyPage() {
           decreaseCounter={decreaseCounter}
           increaseCounter={increaseCounter}
         /> */}
+        <PopoverComponent popoverRef={popoverRef} />
         <DashboardWithLoading
           isLoading={isLoading}
           counter={counter}
