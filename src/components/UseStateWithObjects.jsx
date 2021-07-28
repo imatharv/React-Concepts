@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function UseStateWithObjects() {
+  // State as a object
   const [details, setDetails] = React.useState({ name: "", city: "" });
   return (
     <div className="container mt-5 pt-5">
