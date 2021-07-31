@@ -1,12 +1,31 @@
 import React, { useContext } from "react";
 import MyContext from "../components/MyContext";
+import CounterComponent from "../components/CounterComponent";
 
-export default function DashboardComponent() {
+export default function DashboardComponent(props) {
   let ContextData = [];
   ContextData = useContext(MyContext);
-  console.log(ContextData);
+  function CounterClickIncrement(props) {
+    return (
+      <button
+        onClick={props.increaseCounter}
+        className="btn btn-danger shadow rounded-lg mx-2 action-btn px-4"
+      >
+        Next
+      </button>
+    );
+  }
+  function CounterClickDecrement(props) {
+    return (
+      <button
+        onClick={props.decreaseCounter}
+        className="btn btn-danger shadow rounded-lg mx-2 action-btn px-4"
+      >
+        Prev
+      </button>
+    );
+  }
   return (
-    // <MyContext.Consumer>
     <div className="container h-100">
       <div className="my-5">
         <h1 className="display-5">Employees</h1>
@@ -52,14 +71,30 @@ export default function DashboardComponent() {
         </table>
       </div>
       <div className="row justify-content-center mb-5">
-        <button className="btn btn-danger shadow rounded-lg mx-2 action-btn px-4">
+        <CounterComponent
+          render={(count, decreaseCounter) => (
+            <CounterClickDecrement
+              count={count}
+              decreaseCounter={decreaseCounter}
+            />
+          )}
+        />
+        <CounterComponent
+          render={(count, increaseCounter) => (
+            <CounterClickIncrement
+              count={count}
+              increaseCounter={increaseCounter}
+            />
+          )}
+        />
+
+        {/* <button className="btn btn-danger shadow rounded-lg mx-2 action-btn px-4">
           Prev
         </button>
         <button className="btn btn-danger shadow rounded-lg mx-2 action-btn px-4">
           Next
-        </button>
+        </button> */}
       </div>
     </div>
-    // </MyContext.Consumer>
   );
 }
