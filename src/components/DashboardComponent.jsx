@@ -7,11 +7,11 @@ export default function DashboardComponent() {
   console.log(ContextData);
   return (
     // <MyContext.Consumer>
-    <div className="container">
+    <div className="container h-100">
       <div className="my-5">
         <h1 className="display-5">Employees</h1>
       </div>
-      <div className="card card-body mb-3 shadow-regular border-0 rounded-lg">
+      <div className="card card-body mb-5 shadow-regular border-0 rounded-lg">
         <table className="table table-hover">
           <thead className="">
             <tr className="border-0">
@@ -50,6 +50,14 @@ export default function DashboardComponent() {
             })}
           </tbody>
         </table>
+      </div>
+      <div className="row justify-content-center mb-5">
+        <button className="btn btn-danger shadow rounded-lg mx-2 action-btn px-4">
+          Prev
+        </button>
+        <button className="btn btn-danger shadow rounded-lg mx-2 action-btn px-4">
+          Next
+        </button>
       </div>
     </div>
     // </MyContext.Consumer>

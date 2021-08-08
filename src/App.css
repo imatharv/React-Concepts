@@ -15,3 +15,6 @@
 .table-row-border {
   border-bottom: 1px solid rgb(215, 223, 235) !important;
 }
+.action-btn {
+  width: 83px !important;
+}
