@@ -18,17 +18,18 @@ export default function MyPage() {
 
   const popoverRef = useRef(null);
 
-  const decreaseCounter = () => {
-    if (counter > 1) {
-      setCounter(counter - 1);
-    }
-  };
+  // const decreaseCounter = () => {
+  //   if (counter > 1) {
+  //     setCounter(counter - 1);
+  //     console.log("decdecdecdec");
+  //   }
+  // };
 
-  const increaseCounter = () => {
-    if (counter <= 5) {
-      setCounter(counter + 1);
-    }
-  };
+  // const increaseCounter = () => {
+  //   if (counter <= 5) {
+  //     setCounter(counter + 1);
+  //   }
+  // };
 
   const getData = () => {
     Service.getData()
@@ -42,14 +43,18 @@ export default function MyPage() {
       });
   };
 
+  const openPopover = () => {
+    // popoverRef.current.open();
+  };
+
   useEffect(() => {
     getData();
-    popoverRef.current.open();
+    //popoverRef.current.open();
   }, []);
   return (
     <React.Fragment>
       <MyContext.Provider value={data}>
-        <NavigationComponent />
+        <NavigationComponent openPopover={openPopover} />
         {/* <DashboardComponent
           counter={counter}
           decreaseCounter={decreaseCounter}
@@ -59,8 +64,8 @@ export default function MyPage() {
         <DashboardWithLoading
           isLoading={isLoading}
           counter={counter}
-          decreaseCounter={decreaseCounter}
-          increaseCounter={increaseCounter}
+          // decreaseCounter={decreaseCounter}
+          // increaseCounter={increaseCounter}
         />
         <FooterComponent />
       </MyContext.Provider>

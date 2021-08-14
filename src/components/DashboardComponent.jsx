@@ -8,7 +8,7 @@ export default function DashboardComponent(props) {
   function CounterClickIncrement(props) {
     return (
       <button
-        onClick={props.increaseCounter}
+        //onClick={decreaseCounter}
         className="btn btn-danger shadow rounded-lg mx-2 action-btn px-4"
       >
         Next
@@ -18,7 +18,9 @@ export default function DashboardComponent(props) {
   function CounterClickDecrement(props) {
     return (
       <button
-        onClick={props.decreaseCounter}
+        onClick={() => {
+          console.log("button clicked");
+        }}
         className="btn btn-danger shadow rounded-lg mx-2 action-btn px-4"
       >
         Prev
@@ -82,6 +84,9 @@ export default function DashboardComponent(props) {
         <CounterComponent
           render={(count, increaseCounter) => (
             <CounterClickIncrement
+              onClick={() => {
+                console.log("ssssssssssssssssssss");
+              }}
               count={count}
               increaseCounter={increaseCounter}
             />

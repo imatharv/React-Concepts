@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function NavigationComponent() {
+export default function NavigationComponent(props) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
       <div className="container">
@@ -8,7 +8,10 @@ export default function NavigationComponent() {
           Brandname
         </a>
         <div className="ml-auto">
-          <button className="btn btn-sm btn-light shadow border-0 rounded-lg">
+          <button
+            className="btn btn-sm btn-light shadow border-0 rounded-lg"
+            onClick={props.openPopover}
+          >
             Button
           </button>
         </div>

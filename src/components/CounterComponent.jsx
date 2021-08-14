@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 
 export default function CounterComponent(props) {
-  const [counter, setCounter] = useState("1");
+  const [counter, setCounter] = useState(1);
+  // React.useEffect(() => {
+  //   setCounter(3);
+  // }, [props]);
   const decreaseCounter = () => {
+    console.log("decreaseCounter");
     if (counter > 1) {
       setCounter(counter - 1);
     }
