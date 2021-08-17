@@ -22,23 +22,26 @@ export default class EmployeeDetailsComponent extends Component {
 
   // Updating
   // Called just before updating the DOM
+  // This method has access to the props and state even after the update.
   getSnapshotBeforeUpdate(prevProps, prevState) {
     document.getElementById("previous-state").innerHTML =
       "The previous state was " + prevState.name;
+    return prevState;
   }
   // Called after the component is updated in the DOM
   componentDidUpdate(prevState) {
     document.getElementById("current-state").innerHTML =
-      "The current state is " + this.state.name;
-
+      "In DidUpdate the current state is " + this.state.name;
     if (prevState.name !== this.state.name) {
       document.getElementById("statechange").innerHTML =
-        "The state is changed to " + this.state.name;
+        "In DidUpdate the state is changed to " + this.state.name;
     }
   }
-
-  // Unmouting
-  // Called just before updating the DOM
+  // You want your state or props to update or not
+  // The shouldComponentUpdate() specifies whether React should continue with the rendering or not.
+  // shouldComponentUpdate() {
+  //   return false; //Change to true for state to update
+  // }
 
   render() {
     return (
@@ -119,10 +122,12 @@ export default class EmployeeDetailsComponent extends Component {
 }
 
 export class Child extends Component {
+  // Unmouting
+  // Happens just before the component unmounts and is destroyed and is used for cleanup actions like canceling API calls or clearing any caches in storage
   componentWillUnmount() {
     alert("Child component will unmount");
   }
   render() {
-    return <>I am a child component</>;
+    return <p>I am a child component</p>;
   }
 }
