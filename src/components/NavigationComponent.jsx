@@ -10,7 +10,8 @@ export default function NavigationComponent(props) {
         <div className="ml-auto">
           <button
             className="btn btn-sm btn-light shadow border-0 rounded-lg"
-            onClick={props.openPopover}
+            //onClick={props.openPopover}
+            onClick={props.handleNavBtnToggle}
           >
             Button
           </button>
