@@ -8,7 +8,7 @@ function closureExample() {
             setTimeout(function () {
             console.log(x);
             }, x * 1000);
-        }\
+        }
         // Every time we call this function with i, it create a new capy of x with the i' value at line number 132..
         myFunction(i);
     }
